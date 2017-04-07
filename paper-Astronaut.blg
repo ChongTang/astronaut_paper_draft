@@ -1,0 +1,59 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: paper-Astronaut.aux
+The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: article.bib
+-- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty year in tool_for_education_progressions
+Warning--empty year in tool_for_data_extraction
+
+Done.
+You've used 27 entries,
+            4039 wiz_defined-function locations,
+            971 strings with 12701 characters,
+and the built_in function-call counts, 15446 in all, are:
+= -- 1168
+> -- 358
+< -- 54
++ -- 177
+- -- 75
+* -- 749
+:= -- 2475
+add.period$ -- 64
+call.type$ -- 27
+change.case$ -- 26
+chr.to.int$ -- 108
+cite$ -- 29
+duplicate$ -- 1247
+empty$ -- 1526
+format.name$ -- 96
+if$ -- 3513
+int.to.chr$ -- 0
+int.to.str$ -- 27
+missing$ -- 254
+newline$ -- 110
+num.names$ -- 26
+pop$ -- 642
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 1196
+stack$ -- 0
+substring$ -- 279
+swap$ -- 820
+text.length$ -- 18
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 27
+warning$ -- 2
+while$ -- 46
+width$ -- 29
+write$ -- 270
+(There were 2 warnings)

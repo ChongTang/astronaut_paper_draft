@@ -1,0 +1,174 @@
+Review 1
+Review
+Summary and evaluation: 	
+
+The paper focuses on the problem that arises when developing systems
+from incomplete specifications. The unspecified aspects of the system
+lead to many possible implementations, among which developers have to
+choose based on some tradeoff analysis that consider the dimensions
+not constrained by the specifications. The example and case study used
+is the one for object-relation mapping (ORM): the specification of an
+ORM (in terms of an object data model) determines its mapping to a
+relational database schema, but does not provide additional
+constraints on the performance of the database, which might be
+affected by the chosen mapping. To address this problem, the authors
+propose a general analysis framework (formalized in Coq) that can be
+instantiated for the tradespace analysis of a specific domain. The
+paper details the experimental results of the application of this
+framework to the domain of ORM, highlighting how it can lead to the
+selection of "better" design solutions.
+
+
+The paper provides an interesting perspective on tradespace analysis
+when dealing with incomplete specifications, though the same idea has
+been already proposed, at least in a preliminary form specific to
+the domain of ORM, in earlier work of the authors (ref. [5]).
+
+The authors claim five contributions in this paper:
+(quoted)
+(1) problem analysis;
+(2) a formal specification expressed in Coq of a general model of
+tradespace analysis from incomplete formal specifications;
+(3) an executable implementation of this framework in Scala;
+(4) an ORM-specific tool produced as an instance of this framework;
+(5) experiments using this tool.
+
+but I think that some of them are under-developed or non-existing.
+
+- Contribution (1), the problem analysis is described in the second
+half of section 1, but it is just a series of statements that should
+be further developed (and probably would fit better in a position
+paper). For example, how should one describe the dimensions of
+importance of a system? Is it realistic to assume the delivery of a
+"set of implementations"? Is it acceptable to have more coupled
+designs? (and if yes, which type of coupling are we talking about?)
+
+- Contributions (3) and (4) should be considered technological but
+they are not detailed (e.g., how have they been developed?) and have
+not been made available. Since their derivation from the framework
+listed as contribution (2) is not clear, more details would have
+been insightful. Moreover, given the recurring reference to "tools"
+in the paper, I would have expected to have these tools available.
+
+
+- Before the actual list of contributions, there is sentence saying
+"The main contribution of this work is a set of experiments the
+results of which strongly support of this hypothesis.". However, I
+would say that not much attention has been given to the experimental
+section: for example, the hypotheses have not been clearly defined,
+the threats to validity have not been discussed, the visualization
+of the data is impractical (see figures 3--7), some conclusions are
+not supported by empirical evidence (see also below).
+
+
+Another critical issue of the paper is the presentation of one of the
+main contributions, i.e., the formal framework for tradespace
+analysis. The description is provided at a very high-level, as a
+series of signatures and typed variable defined in Coq. What are the
+benefits of using Coq, except for type checking of the declarations?
+How can one concretely use this framework? The authors say that
+"extracted Scala code from the Coq specification": how does this code
+extraction work? What has to be added to the generated/extracted code?
+How can the system be "plugged" into the MapReduce framework used for
+the tradespace analysis? What kind of proofs have to be developed for
+the instantiation of some of its components? These questions are left
+unanswered.
+
+
+As for the executable implementation of the framework, a list of
+functions is provided on page 4 and the possibility of adding plugins
+(for which key parameters?) is also mentioned. Again, more details
+should be provided, starting from the architecture of this
+concrete/executable framework.
+
+
+One aspect that is not considered in the evaluation of the framework is the
+extra burden imposed on developers to produce the additional artifacts
+required by the framework. The list in section 3.1.2 seems quite long
+but the average complexity of each of the required artifacts is not
+discussed. In section 4.1, on the comparison of the automated vs
+manual analysis, it is said that "the only work needing human's input
+is to give specification" but I am not sure, without examples, that
+this is an easy task.
+
+
+In addition, claims are made on the generalization of the framework
+and they are not substantiated by evidence. In section 5.1, they say
+"we have claimed that our framework generalizes our approach beyond
+the ORM domain" and then they also say "For this claim, we have only
+limited supporting data." There are no supporting data at all,
+because the implementation/instantiation has been done only for the
+domain of ORM for which, by the way, the authors had previous
+experience, knowledge, and artifacts (based on their previous work,
+ref 5). Would have it been the same for a completely new domain?
+
+Finally, regarding the readability of the paper, one thing that I did
+not liked is how some sentences strictly related to the case study (on
+ORM and database design) are intertwined with sentences referring to
+the general approach. Probably the text could be restructured to
+better emphasize the parts that are exemplifications. For example, in
+the last paragraph before 3.1, the text "Alloy-encoded rules for
+mapping ORM specifications" refer to a specific aspect of the case
+study that is explained later on.
+
+
+Additional remarks:
+
+- the last section of the introduction seems to be part of an earlier
+draft of the paper.
+
+- what is the "specification-to-design-space-synthesizer" mentioned
+in section 3.1?
+
+- Section 3.1.1: the description of the symbols used in figure 2
+should be moved before the description of the Coq block.
+
+- Section 3.2: what do you mean with "populating databases by
+subjecting them to test loads"? Shouldn't the tests be done on the
+populated database?
+
+- There is a discrepancy (4 vs 5) between the number of models indicated in
+section 3.2 and in section 3.3.
+
+- Section 4.2: Figure 4 has no red line...
+
+- Tables 2--4: why are the results for Django and Rails exactly the
+same except for CSOS?
+
+- What is the "iterated zoom-analysis" mentioned in the discussion?
+Please include a reference.
+
+Minor remarks:
+
+- do not use colors for references in the PDF
+
+- do not use slang expressions like "throw-a-dart" or "to be in a
+Kansas"
+
+- section 1, 2nd paragraph: "satisfactory", fix typo
+
+- "unparse" -> translate?
+
+- - section 3.8, "one can easily distinguished the schemas... by the
+color". Given the size of the plots and the density of dark dots,
+it is actually very difficult.
+
+- fix references 3, 5, 6
+
+
+Strengths and weaknesses: 	
+
+(+) interesting perspective on tradespace analysis when dealing with
+incomplete specifications
+
+(-) some of the listed contributions not fully developed
+
+(-) insufficient description of the framework and of its use
+
+(-) extra-burden on the developers for using the framework not
+assessed
+
+(-) claims on the generalization of the framework not
+substantiated by evidence
+
+(-) readability could be improved
